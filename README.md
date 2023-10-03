@@ -1,3 +1,9 @@
+# Basic Project
+
+ive set this up into folders to create a stupidly over-engineered todo app. The frontend will be nextjs, the infra will be CDK.
+
+Make sure to move into the infra folder for cdk to be picked up. The project uses awslocal and cdklocal, so make sure that you have those, awscli and cdk cli installed.
+
 # Welcome to your CDK TypeScript project
 
 You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`BunCdkTestingStack`)
