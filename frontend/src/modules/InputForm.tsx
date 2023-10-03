@@ -5,8 +5,6 @@ import ColourPicker from "./ColourPicker";
 
 const StyledForm = styled.form`
   background-color: white;
-  width: 50%;
-  border: 2px solid lightblue;
   border-radius: 10px;
   padding: 10px;
 `;

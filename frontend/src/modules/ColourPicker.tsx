@@ -21,6 +21,7 @@ const ColourPicker = ({ name }: IColourPicker) => {
   };
 
   const ColourHolder = styled.div`
+    width: 45px;
     background-color: #${currentColour};
     border-radius: 50%;
     border: 2px solid grey;
