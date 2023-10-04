@@ -13,7 +13,7 @@ const Sidebar = () => {
         <GridItem>
           <ul>
             {list?.list &&
-              list?.list.map((listItem, index) => {
+              list?.list.map((listItem) => {
                 return <li key={listItem.id}>{listItem.title}</li>;
               })}
           </ul>

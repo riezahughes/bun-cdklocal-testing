@@ -1,8 +1,19 @@
 import Headline from "@/components/Headline";
 import Sidebar from "@/modules/Sidebar";
-import { Grid, GridItem, Button, useDisclosure } from "@chakra-ui/react";
+import Footer from "@/modules/Footer";
+import {
+  Grid,
+  GridItem,
+  Button,
+  useDisclosure,
+  Flex,
+  Box,
+  Center,
+} from "@chakra-ui/react";
 import InputForm from "@/modules/InputForm";
 import ModalComponent from "@/components/ModalComponent";
+import CardComponent from "@/components/CardComponent";
+import CardContainer from "@/modules/CardContainer";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,28 +33,30 @@ const Home = () => {
       >
         <InputForm />
       </ModalComponent>
-      <Headline>The Classic TODO List!</Headline>
-      <Grid
-        templateRows="repeat(2, 1fr)"
-        templateColumns="repeat(5, 1fr)"
-        gap={4}
-      >
-        <GridItem colSpan={5}>
-          <Button onClick={onOpen}>Add New</Button>
-        </GridItem>
-        <GridItem rowSpan={2} colSpan={1} bg="tomato">
-          <Sidebar />
-        </GridItem>
-        <GridItem colSpan={2} bg="papayawhip">
-          <span>Heres card 1</span>
-        </GridItem>
-        <GridItem colSpan={2} bg="papayawhip">
-          <span>Heres card 2</span>
-        </GridItem>
-        <GridItem colSpan={4} bg="tomato">
-          Heres a simple footer
-        </GridItem>
-      </Grid>
+
+      <Flex direction="column" minHeight="100vh">
+        <Box flex="1">
+          <Grid templateColumns="repeat(3, 1fr)" gap={4}>
+            <GridItem colSpan={5}>
+              <Headline>The Classic TODO List!</Headline>
+            </GridItem>
+            <GridItem colSpan={5}>
+              <Button onClick={onOpen}>Add New</Button>
+            </GridItem>
+            {/* <GridItem rowSpan={2} colSpan={1} bg="tomato">
+              <Sidebar />
+            </GridItem> */}
+            <GridItem colSpan={4}>
+              <CardContainer />
+            </GridItem>
+          </Grid>
+        </Box>
+        <Box>
+          <Center>
+            <Footer />
+          </Center>
+        </Box>
+      </Flex>
     </>
   );
 };
