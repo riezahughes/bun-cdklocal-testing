@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ColourPip from "@/components/ColourPips";
 import {
   Box,
@@ -14,13 +14,21 @@ import {
 interface IColourPicker {
   name: string;
   colourList: Array<string>;
+  setValue: any;
+  defaultValue: string;
 }
 
-const ColourPicker = ({ name, colourList }: IColourPicker) => {
-  const [currentColour, setCurrentColour] = useState("#FFFFFF");
+const ColourPicker = ({
+  name,
+  colourList,
+  setValue,
+  defaultValue,
+}: IColourPicker) => {
+  const [currentColour, setCurrentColour] = useState(defaultValue);
 
   const handleColourChange = (colour: any) => {
     setCurrentColour(colour);
+    setValue(name, colour);
   };
 
   return (

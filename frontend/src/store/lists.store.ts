@@ -5,28 +5,28 @@ export const ListInitialState = [
     id: 0,
     slug: "this-is-example-1",
     title: "This is example 1",
-    body: "This is where we can store literally anything you want.",
+    message: "This is where we can store literally anything you want.",
     complete: true,
-    bg: "FFFFFF",
-    color: "000000",
+    bgColour: "#FFFFFF",
+    textColour: "#000000",
   },
   {
     id: 1,
     slug: "this-is-example-2",
     title: "This is example 2",
-    body: "This is where we can store literally anything you want.",
+    message: "This is where we can store literally anything you want.",
     complete: false,
-    bg: "000000",
-    color: "FFFFFF",
+    bgColour: "#000000",
+    textColour: "#FFFFFF",
   },
   {
     id: 2,
     slug: "example-3",
     title: "Example 3",
-    body: "One more for the road.",
+    message: "One more for the road.",
     complete: false,
-    bg: "FFFFFF",
-    color: "000000",
+    bgColour: "#FFFFFF",
+    textColour: "#000000",
   },
 ];
 
@@ -34,10 +34,10 @@ export type TItem = {
   id: number;
   slug: string;
   title: string;
-  body: string;
+  message: string;
   complete: boolean;
-  bg: string;
-  color: string;
+  bgColour: string;
+  textColour: string;
 };
 
 export type TListType = {

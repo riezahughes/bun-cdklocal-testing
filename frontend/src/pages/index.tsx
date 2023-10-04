@@ -29,7 +29,7 @@ const Home = () => {
             <GridItem colSpan={5}>
               <InputForm />
             </GridItem>
-            <GridItem colSpan={4}>
+            <GridItem colSpan={5}>
               <CardContainer />
             </GridItem>
           </Grid>

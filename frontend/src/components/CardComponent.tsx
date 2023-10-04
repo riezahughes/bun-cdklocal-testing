@@ -2,8 +2,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
-  Divider,
   ButtonGroup,
   Button,
   Flex,
@@ -17,11 +15,9 @@ import { useContext } from "react";
 
 interface ICardComponent {
   item: TItem;
-  body: any;
-  header?: any;
 }
 
-const CardComponent = ({ item, body, header }: ICardComponent) => {
+const CardComponent = ({ item }: ICardComponent) => {
   const list = useContext(ListContext);
   const toast = useToast();
 
@@ -37,7 +33,7 @@ const CardComponent = ({ item, body, header }: ICardComponent) => {
     toast({
       title: "Note Deleted.",
       description: "We've deleted your note.",
-      status: "success",
+      status: "error",
       duration: 2000,
       isClosable: true,
     });
@@ -65,16 +61,16 @@ const CardComponent = ({ item, body, header }: ICardComponent) => {
   };
 
   return (
-    <Card w="45%" bg={`#${item?.bg}`} color={`#${item?.color}`}>
+    <Card w="23%" mb={10} bg={item?.bgColour} color={item?.textColour}>
       <CardHeader>
         <Flex
           alignItems="center"
           justifyContent="space-between"
           textDecoration={item?.complete ? "line-through" : "inherit"}
         >
-          {header ? (
+          {item?.title ? (
             <>
-              <strong>{header}</strong>
+              <strong>{item?.title}</strong>
             </>
           ) : (
             <></>
@@ -94,7 +90,7 @@ const CardComponent = ({ item, body, header }: ICardComponent) => {
         </Flex>
       </CardHeader>
       <CardBody textDecoration={item?.complete ? "line-through" : "inherit"}>
-        {body}
+        {item?.message}
       </CardBody>
     </Card>
   );
