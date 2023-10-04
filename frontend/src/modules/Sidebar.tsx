@@ -1,6 +1,9 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react";
+import { ListContext } from "@/store/lists.store";
+import { useContext } from "react";
 
 const Sidebar = () => {
+  const list = useContext(ListContext);
   return (
     <Box w="100%">
       <Grid>
@@ -9,9 +12,10 @@ const Sidebar = () => {
         </GridItem>
         <GridItem>
           <ul>
-            {[{ test: 1 }, { test: 2 }, { test: 3 }].map((listItem, index) => {
-              return <li key={index}>{listItem.test}</li>;
-            })}
+            {list?.list &&
+              list?.list.map((listItem, index) => {
+                return <li key={listItem.id}>{listItem.title}</li>;
+              })}
           </ul>
         </GridItem>
       </Grid>
