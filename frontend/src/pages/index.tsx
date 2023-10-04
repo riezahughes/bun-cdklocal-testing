@@ -1,4 +1,5 @@
 import Headline from "@/components/Headline";
+import Sidebar from "@/modules/Sidebar";
 import { Grid, GridItem, Button, useDisclosure } from "@chakra-ui/react";
 import InputForm from "@/modules/InputForm";
 import ModalComponent from "@/components/ModalComponent";
@@ -16,6 +17,8 @@ const Home = () => {
         isOpen={isOpen}
         onClose={onClose}
         onSuccess={handleModalSuccess}
+        onSuccessButtonText="Save"
+        onCancelButtonText="Cancel"
       >
         <InputForm />
       </ModalComponent>
@@ -29,7 +32,7 @@ const Home = () => {
           <Button onClick={onOpen}>Add New</Button>
         </GridItem>
         <GridItem rowSpan={2} colSpan={1} bg="tomato">
-          <span>Heres the navigation</span>
+          <Sidebar />
         </GridItem>
         <GridItem colSpan={2} bg="papayawhip">
           <span>Heres card 1</span>

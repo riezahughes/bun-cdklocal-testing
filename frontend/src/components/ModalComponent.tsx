@@ -14,6 +14,8 @@ interface IModalComponent {
   isOpen: boolean;
   onClose: () => void;
   onSuccess: () => void;
+  onSuccessButtonText?: string;
+  onCancelButtonText?: string;
   header?: string;
   children?: ReactNode;
 }
@@ -22,6 +24,8 @@ const ModalComponent = ({
   isOpen,
   onClose,
   onSuccess,
+  onSuccessButtonText,
+  onCancelButtonText,
   header,
   children,
 }: IModalComponent) => {
@@ -35,10 +39,10 @@ const ModalComponent = ({
 
         <ModalFooter>
           <Button colorScheme="blue" mr={3} onClick={onSuccess}>
-            Close
+            {onSuccessButtonText}
           </Button>
           <Button variant="ghost" onClick={onClose}>
-            Secondary Action
+            {onCancelButtonText ? <>{onCancelButtonText}</> : <>Cancel</>}
           </Button>
         </ModalFooter>
       </ModalContent>
