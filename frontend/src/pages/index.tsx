@@ -18,22 +18,8 @@ import CardContainer from "@/modules/CardContainer";
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleModalSuccess = () => {
-    alert("I DID IT");
-    onClose();
-  };
   return (
     <>
-      <ModalComponent
-        isOpen={isOpen}
-        onClose={onClose}
-        onSuccess={handleModalSuccess}
-        onSuccessButtonText="Save"
-        onCancelButtonText="Cancel"
-      >
-        <InputForm />
-      </ModalComponent>
-
       <Flex direction="column" minHeight="100vh">
         <Box flex="1">
           <Grid templateColumns="repeat(3, 1fr)" gap={4}>
@@ -41,11 +27,8 @@ const Home = () => {
               <Headline>The Classic TODO List!</Headline>
             </GridItem>
             <GridItem colSpan={5}>
-              <Button onClick={onOpen}>Add New</Button>
+              <InputForm />
             </GridItem>
-            {/* <GridItem rowSpan={2} colSpan={1} bg="tomato">
-              <Sidebar />
-            </GridItem> */}
             <GridItem colSpan={4}>
               <CardContainer />
             </GridItem>

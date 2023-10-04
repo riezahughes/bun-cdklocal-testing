@@ -1,6 +1,8 @@
 import { useState } from "react";
-import styled from "@emotion/styled";
+import ColourPip from "@/components/ColourPips";
 import {
+  Box,
+  Flex,
   Grid,
   GridItem,
   Input,
@@ -11,35 +13,31 @@ import {
 
 interface IColourPicker {
   name: string;
+  colourList: Array<string>;
 }
 
-const ColourPicker = ({ name }: IColourPicker) => {
-  const [currentColour, setCurrentColour] = useState("FFFFFF");
+const ColourPicker = ({ name, colourList }: IColourPicker) => {
+  const [currentColour, setCurrentColour] = useState("#FFFFFF");
 
-  const handleColourChange = (event: any) => {
-    setCurrentColour(event?.target?.value);
+  const handleColourChange = (colour: any) => {
+    setCurrentColour(colour);
   };
 
-  const ColourHolder = styled.div`
-    width: 45px;
-    background-color: #${currentColour};
-    border-radius: 50%;
-    border: 2px solid grey;
-  `;
   return (
-    <Stack>
-      <InputGroup>
-        <ColourHolder />
-        <InputLeftAddon>#</InputLeftAddon>
-        <Input
-          name={name}
-          prefix="#"
-          defaultValue={currentColour}
-          onChange={(e) => handleColourChange(e)}
-          textTransform="uppercase"
-        />
-      </InputGroup>
-    </Stack>
+    <Box>
+      <Flex>
+        {colourList.map((colour, index) => {
+          return (
+            <ColourPip
+              key={`colpick-${name}-${colour}-${index}`}
+              colour={colour}
+              onClick={handleColourChange}
+              selected={colour === currentColour}
+            />
+          );
+        })}
+      </Flex>
+    </Box>
   );
 };
 
