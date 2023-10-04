@@ -6,7 +6,7 @@ import { useContext } from "react";
 const CardContainer = () => {
   const list = useContext(ListContext);
   return (
-    <Flex flexWrap="wrap" justifyContent="space-between">
+    <Flex flexWrap="wrap" justifyContent="flex-start">
       {list?.list &&
         list?.list.map((listItem, index) => {
           return (
